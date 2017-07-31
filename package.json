@@ -1,0 +1,23 @@
+{
+  "name": "me-formei",
+  "version": "1.0.0",
+  "description": "1st twitter bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesonha/me-formei.git"
+  },
+  "author": "Cesar Cano de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cesonha/me-formei/issues"
+  },
+  "homepage": "https://github.com/cesonha/me-formei#readme",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
