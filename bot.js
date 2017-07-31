@@ -14,23 +14,14 @@ var getRandomMsg = function(msgs) {
 	return msgs[Math.floor(Math.random() * msgs.length)];
 }
 
-
+var motivationalMsgs = ["Vai Cesar, pensa que falta menos de um ano já mano!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
 var tweet = function() { 
-var msg = 'Faltam ' + diffDays(new Date(2017, 07, 31)) + ' dias pra você se formar. Não desista!!';
+var msg = 'Faltam ' + diffDays(new Date(2017, 07, 31)) + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
 Twitter.post('statuses/update', { status: msg }, function(err, data, response) {
   console.log(data)
 })
 
 }
 
-var test = function() {
-var msg = Math.floor(Math.random() * 100);
-	Twitter.post('statuses/update', { status: "Testando umas baboseira - " + msg }, function(err, data, response) {
-  console.log(data)
-})
-}
-
 tweet();
-test();
-setInterval(tweet, 1000 * 30);
-setInterval(tweet, 1000 * 60 * 60);
+setInterval(tweet, 1000 * 60 * 60 * 24);
