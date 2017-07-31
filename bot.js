@@ -36,4 +36,4 @@ Twitter.get('statuses/user_timeline', { screen_name: 'acaba_faculdade', count: 1
 }
 
 routine();
-setInterval(routine, 1000);
+setInterval(routine, 1000 * 60 * 60 * 8);
