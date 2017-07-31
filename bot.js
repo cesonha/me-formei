@@ -22,6 +22,18 @@ Twitter.post('statuses/update', { status: msg }, function(err, data, response) {
 })
 
 }
+var routine = function() {
 
-tweet();
-setInterval(tweet, 1000 * 60 * 60 * 24);
+Twitter.get('statuses/user_timeline', { screen_name: 'acaba_faculdade', count: 1}, function(err, data, response) {
+  var lastTweet = data[0]["text"];
+  var daysLeft = diffDays(new Date(2017, 07, 31)).toString();
+  if (lastTweet.indexOf(daysLeft) == -1) { 
+  	tweet();
+  };
+
+})
+
+}
+
+routine();
+setInterval(routine, 1000);
