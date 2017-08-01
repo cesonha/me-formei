@@ -5,7 +5,7 @@ var Twitter = new twit(config);
 
 
 var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-var goalDate = new Date(2018,07,31);
+var goalDate = new Date(2018,07,01);
 var diffDays = function (today) { 
 	return Math.round(Math.abs((today.getTime() - goalDate.getTime())/(oneDay)));
 }
