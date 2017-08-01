@@ -16,7 +16,7 @@ var getRandomMsg = function(msgs) {
 
 var motivationalMsgs = ["Vai Cesar, pensa que falta menos de um ano já mano!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
 var tweet = function() { 
-var msg = 'Faltam ' + diffDays(new Date(2017, 07, 01)) + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
+var msg = 'Faltam ' + diffDays(new Date()) + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
 Twitter.post('statuses/update', { status: msg }, function(err, data, response) {
   console.log(data)
 })
