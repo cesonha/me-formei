@@ -29,7 +29,7 @@ var getPercentageBar = function(daysLeft) {
 	return text
 }
 
-var motivationalMsgs = ["E A MONOGRAFIA, JÁ TERMINOU??", "VAI CUZÃO!!", "Vai Cesar, pensa que falta menos de um ano já mano!", "Compra uma cervejinha boa amanhã, você merece!!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "Never gonna give you up", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
+var motivationalMsgs = ["VAI CUZÃO!!", "Vai Cesar, pensa que falta menos de um ano já mano!", "Compra uma cervejinha boa amanhã, você merece!!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "Never gonna give you up", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
 var tweet = function() { 
 var msg = getPercentageBar(diffDays(new Date()))
 msg += '\nFaltam ' + diffDays(new Date()) + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
