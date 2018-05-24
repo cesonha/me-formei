@@ -14,6 +14,10 @@ var getRandomMsg = function(msgs) {
 	return msgs[Math.floor(Math.random() * msgs.length)];
 }
 
+var getMilestoneMsg = function(msgs, days) {
+	return msgs[6 - (days / 10)]
+}
+
 var getPercentageBar = function(daysLeft) {
 	var perc = 100 - (100 * (daysLeft / 365))
 	var text = ""
@@ -29,11 +33,21 @@ var getPercentageBar = function(daysLeft) {
 	return text
 }
 
-var motivationalMsgs = ["VAI CUZÃO!!", "Vai Cesar, pensa que falta menos de um ano já mano!", "Compra uma cervejinha boa amanhã, você merece!!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "Never gonna give you up", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
+var motivationalMsgs = ["ÚLTIMO GÁS DALE DALE DALE DALE PUTAQUEPARIU!!", "Vai Cesar, pensa que falta menos de um ano já mano!", "Compra uma cervejinha boa amanhã, você merece!!", "o IME é legal mas legal mesmo é não precisar mais estudar sob pressão", "Agradeça seus amigos que sem eles você não tava aqui MULEQUE", "VEJA A LUZ NO FIM DO TÚNEL!!", "Você é muito mais do que suas notas AHSDUIHFSUBSF"];
+var milestoneMsgs = ["2 MESES MANO, DOIS FUCKING MESES!!! VAI CARALHO!", "50tinha lek, vai na fé.", "em 40 dias VC TÁ OBRIGADO A DORMIR POR 2 DIAS SEGUIDOS", "O COMEÇO DO FIM, ÚLTIMO MÊS, AAAAAAAAAA", "20 DIAS MANO 20 FJUCKIASDFSSGFSGJ", "COMEÇA A CONTAGEM REGRESSIVA, DEZ DIAS PRO FIM"]
 var tweet = function() { 
 var msg = getPercentageBar(diffDays(new Date()))
-msg += '\nFaltam ' + diffDays(new Date()) + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
-
+var remainingDays = diffDays(new Date())
+if (diffDays < 0) return
+if (diffDays < 10) {
+	msg += '\n' + remainingDays + '!!!';
+}
+else if (diffDays % 10 == 0) {
+	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getMilestoneMsg(mileStoneMsgs, remainingDays);
+}
+else { 
+	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
+} 
 Twitter.post('statuses/update', { status: msg }, function(err, data, response) {
   console.log(data)
 })
