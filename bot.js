@@ -38,11 +38,11 @@ var milestoneMsgs = ["2 MESES MANO, DOIS FUCKING MESES!!! VAI CARALHO!", "50tinh
 var tweet = function() { 
 var msg = getPercentageBar(diffDays(new Date()))
 var remainingDays = diffDays(new Date())
-if (diffDays < 0) return
-if (diffDays < 10) {
+if (remainingDays < 0) return
+if (remainingDays < 10) {
 	msg += '\n' + remainingDays + '!!!';
 }
-else if (diffDays % 10 == 0) {
+else if (remainingDays % 10 == 0) {
 	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getMilestoneMsg(mileStoneMsgs, remainingDays);
 }
 else { 
