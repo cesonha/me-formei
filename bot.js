@@ -22,7 +22,7 @@ var getPercentageBar = function(daysLeft) {
 	var perc = 100 - (100 * (daysLeft / 365))
 	var text = ""
 	for (i = 0; i < 20; i++) {
-		if (perc > (i+1) * 5) {
+		if (perc >= (i+1) * 5) {
     		text += "█"
     	}
     	else {
@@ -39,11 +39,14 @@ var tweet = function() {
 var msg = getPercentageBar(diffDays(new Date()))
 var remainingDays = diffDays(new Date())
 if (remainingDays < 0) return
-if (remainingDays < 10) {
+else if (remainingDays == 0) {
+	msg += '\nACABOU, PORRAAAAAAAAA, NÃO TEVE HEXA MAS TEVE DIPLOMAAAA!! PAU NO CU DO MUNDO E PARABÉNS SMDOIGSNGSGUSEIRBDGSGFSAFA'
+}
+else if (remainingDays < 10) {
 	msg += '\n' + remainingDays + '!!!';
 }
-else if (remainingDays % 10 == 0) {
-	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getMilestoneMsg(mileStoneMsgs, remainingDays);
+else if (remainingDays % 10 == 0 && remainingDays <= 60) {
+	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getMilestoneMsg(milestoneMsgs, remainingDays);
 }
 else { 
 	msg += '\nFaltam ' + remainingDays + ' dias pra você se formar! ' + getRandomMsg(motivationalMsgs);
